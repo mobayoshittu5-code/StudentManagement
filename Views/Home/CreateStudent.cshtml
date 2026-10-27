@@ -1,0 +1,89 @@
+﻿@model StudentManagement.Models.Student
+
+@{
+    ViewData["Title"] = "Add Student";
+}
+
+<div class="page-heading">
+    <div>
+        <div class="eyebrow">STUDENT RECORDS</div>
+        <h1>Add New Student</h1>
+        <p>Enter the student's details below.</p>
+    </div>
+
+    <a class="btn btn-outline"
+       asp-controller="Home"
+       asp-action="Students">
+        Back to Students
+    </a>
+</div>
+
+<section class="form-card">
+    <div class="form-card-header">
+        <h3>Student Information</h3>
+        <p>Fields marked as required must be completed.</p>
+    </div>
+
+    <div class="form-card-body">
+        <form asp-controller="Home"
+              asp-action="CreateStudent"
+              method="post">
+
+            <div asp-validation-summary="ModelOnly"
+                 class="text-danger"></div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label asp-for="Name" class="form-label">
+                        Full Name
+                    </label>
+                    <input asp-for="Name"
+                           class="form-control"
+                           placeholder="Enter student's full name" />
+                    <span asp-validation-for="Name"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Course" class="form-label">
+                        Course
+                    </label>
+                    <input asp-for="Course"
+                           class="form-control"
+                           placeholder="Enter course name" />
+                    <span asp-validation-for="Course"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Score" class="form-label">
+                        Score
+                    </label>
+                    <input asp-for="Score"
+                           type="number"
+                           min="0"
+                           max="100"
+                           class="form-control"
+                           placeholder="Enter score from 0 to 100" />
+                    <span asp-validation-for="Score"
+                          class="text-danger"></span>
+                    <span class="form-help">
+                        Enter a score between 0 and 100.
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <a class="btn btn-outline"
+                   asp-controller="Home"
+                   asp-action="Students">
+                    Cancel
+                </a>
+
+                <button type="submit" class="btn btn-primary">
+                    Save Student
+                </button>
+            </div>
+        </form>
+    </div>
+</section>

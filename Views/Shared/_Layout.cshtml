@@ -1,0 +1,77 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - StudentManagement</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <aside class="sidebar">
+        <a class="brand" asp-controller="Home" asp-action="Index">
+            <span class="brand-icon">S</span>
+            <span>Student<span class="brand-light">Hub</span></span>
+        </a>
+
+        <div class="sidebar-label">MAIN MENU</div>
+
+        <nav class="sidebar-nav">
+            <a class="sidebar-link" asp-controller="Home" asp-action="Index">
+                <span class="nav-symbol">D</span>
+                Dashboard
+            </a>
+            <a class="sidebar-link" asp-controller="Home" asp-action="Students">
+                <span class="nav-symbol">S</span>
+                Students
+            </a>
+            <a class="sidebar-link" asp-controller="Home" asp-action="CreateStudent">
+                <span class="nav-symbol">+</span>
+                Add Student
+            </a>
+            <a class="sidebar-link" asp-controller="Home" asp-action="About">
+                <span class="nav-symbol">i</span>
+                About
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-label">SYSTEM</div>
+            <div class="system-status">
+                <span class="status-dot"></span>
+                Student Management
+            </div>
+            <p>Academic records made simple.</p>
+        </div>
+    </aside>
+
+    <div class="main-wrapper">
+        <header class="topbar">
+            <div>
+                <span class="topbar-caption">STUDENT MANAGEMENT SYSTEM</span>
+                <h2>@ViewData["Title"]</h2>
+            </div>
+            <div class="topbar-profile">
+                <div class="profile-avatar">A</div>
+                <div>
+                    <strong>Administrator</strong>
+                    <span>System User</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="page-content">
+            @RenderBody()
+        </main>
+
+        <footer class="footer">
+            <span>&copy; @DateTime.Now.Year StudentHub</span>
+            <span>Student Management System</span>
+        </footer>
+    </div>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

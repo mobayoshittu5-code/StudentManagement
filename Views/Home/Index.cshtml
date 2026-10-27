@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="page-heading">
+    <div>
+        <div class="eyebrow">OVERVIEW</div>
+        <h1>Welcome to StudentHub</h1>
+        <p>Manage student information and academic records in one place.</p>
+    </div>
+
+    <a class="btn btn-primary"
+       asp-controller="Home"
+       asp-action="CreateStudent">
+        + Add New Student
+    </a>
+</div>
+
+<div class="stats-grid">
+    <section class="stat-card">
+        <div class="stat-top">
+            <span class="stat-label">Total Students</span>
+            <span class="stat-icon">ST</span>
+        </div>
+        <div class="stat-value">@ViewBag.TotalStudents</div>
+        <div class="stat-description">Registered student records</div>
+    </section>
+
+    <section class="stat-card">
+        <div class="stat-top">
+            <span class="stat-label">Courses</span>
+            <span class="stat-icon green">CR</span>
+        </div>
+        <div class="stat-value">@ViewBag.TotalCourses</div>
+        <div class="stat-description">Unique courses represented</div>
+    </section>
+
+    <section class="stat-card">
+        <div class="stat-top">
+            <span class="stat-label">Passed</span>
+            <span class="stat-icon green">PA</span>
+        </div>
+        <div class="stat-value">@ViewBag.PassingStudents</div>
+        <div class="stat-description">Students with scores of 50 or above</div>
+    </section>
+
+    <section class="stat-card">
+        <div class="stat-top">
+            <span class="stat-label">Failed</span>
+            <span class="stat-icon red">FA</span>
+        </div>
+        <div class="stat-value">@ViewBag.FailingStudents</div>
+        <div class="stat-description">Students with scores below 50</div>
+    </section>
+</div>
+
+<section class="panel">
+    <div class="panel-header">
+        <div>
+            <h3>Student Management</h3>
+            <p>Your central place for managing academic records.</p>
+        </div>
+        <a class="btn btn-outline"
+           asp-controller="Home"
+           asp-action="Students">
+            View Students
+        </a>
+    </div>
+
+    <div class="panel-body">
+        <div class="empty-state">
+            <strong>Your dashboard is ready</strong>
+            <p>Start by adding student records to your database.</p>
+            <a class="btn btn-primary"
+               asp-controller="Home"
+               asp-action="CreateStudent">
+                Add Your First Student
+            </a>
+        </div>
+    </div>
+</section>

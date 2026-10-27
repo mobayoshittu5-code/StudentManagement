@@ -1,0 +1,115 @@
+﻿@model StudentManagement.Models.Student
+
+@{
+    ViewData["Title"] = "Edit Student";
+}
+
+<div class="page-heading">
+    <div>
+        <div class="eyebrow">Student Management</div>
+        <h1>Edit Student</h1>
+        <p>Update the student's information below.</p>
+    </div>
+
+    <a asp-controller="Home"
+       asp-action="Students"
+       class="btn btn-outline">
+        Back to Students
+    </a>
+</div>
+
+<div class="form-card">
+
+    <div class="form-card-header">
+        <div>
+            <h2>Student Information</h2>
+            <p>Update the student's details.</p>
+        </div>
+    </div>
+
+    <div class="form-card-body">
+
+        <form asp-controller="Home"
+              asp-action="EditStudent"
+              method="post">
+
+            <div asp-validation-summary="ModelOnly"
+                 class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label asp-for="Name"
+                           class="form-label">
+                        Full Name
+                    </label>
+
+                    <input asp-for="Name"
+                           class="form-control"
+                           placeholder="Enter student's full name" />
+
+                    <span asp-validation-for="Name"
+                          class="text-danger"></span>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label asp-for="Course"
+                           class="form-label">
+                        Course
+                    </label>
+
+                    <input asp-for="Course"
+                           class="form-control"
+                           placeholder="Enter course name" />
+
+                    <span asp-validation-for="Course"
+                          class="text-danger"></span>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label asp-for="Score"
+                           class="form-label">
+                        Score
+                    </label>
+
+                    <input asp-for="Score"
+                           type="number"
+                           min="0"
+                           max="100"
+                           class="form-control"
+                           placeholder="Enter score" />
+
+                    <span asp-validation-for="Score"
+                          class="text-danger"></span>
+
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+
+                <a asp-controller="Home"
+                   asp-action="Students"
+                   class="btn btn-outline">
+                    Cancel
+                </a>
+
+                <button type="submit"
+                        class="btn btn-primary">
+                    Save Changes
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

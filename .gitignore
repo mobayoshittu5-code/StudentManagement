@@ -1,0 +1,18 @@
+# Build output
+bin/
+obj/
+.vs/
+*.csproj.user
+
+# Local app settings
+appsettings.Development.json
+
+# Keep app source tracked
+!Controllers/
+!Models/
+!Views/
+!Data/
+!wwwroot/
+!*.csproj
+!Program.cs
+!appsettings.json
